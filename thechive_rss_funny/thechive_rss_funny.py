@@ -2,13 +2,13 @@ import io
 import logging
 import re
 import textwrap
-from datetime import datetime
+from typing import Optional
 from xml.etree import ElementTree as ET
 
 import requests
 from PIL import Image, ImageOps
 
-from core.plugins import BasePlugin
+from plugins.base_plugin import BasePlugin
 
 LOGGER = logging.getLogger(__name__)
 
