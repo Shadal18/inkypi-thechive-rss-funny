@@ -19,7 +19,7 @@ class ChiveFunny(BasePlugin):
     def __init__(self, config):
         super().__init__(config)
 
-    def generate_image(self, settings, device_config, inky_display):
+    def generate_image(self, settings, device_config, inky_display=None):
         width = getattr(device_config, "width", 800)
         height = getattr(device_config, "height", 480)
 
@@ -57,9 +57,11 @@ class ChiveFunny(BasePlugin):
             return self._build_error_image(width, height, "Plugin error")
 
     def _fetch_latest_item(self):
-        response = requests.get(self.RSS_URL, timeout=15, headers={
-            "User-Agent": "Mozilla/5.0 (compatible; InkyPi theCHIVE RSS)"
-        })
+        response = requests.get(
+            self.RSS_URL,
+            timeout=15,
+            headers={"User-Agent": "Mozilla/5.0 (compatible; InkyPi theCHIVE RSS)"}
+        )
         response.raise_for_status()
 
         root = ET.fromstring(response.content)
@@ -108,6 +110,9 @@ class ChiveFunny(BasePlugin):
         if image_url:
             image_url = image_url.replace("&#038;", "&").replace("&amp;", "&")
 
+        if not image_url:
+            LOGGER.warning("ChiveFunny: no image URL found in latest item")
+
         return {
             "title": title,
             "image_url": image_url,
@@ -121,9 +126,11 @@ class ChiveFunny(BasePlugin):
 
     def _download_image(self, url) -> Optional[Image.Image]:
         try:
-            response = requests.get(url, timeout=15, headers={
-                "User-Agent": "Mozilla/5.0 (compatible; InkyPi theCHIVE RSS)"
-            })
+            response = requests.get(
+                url,
+                timeout=15,
+                headers={"User-Agent": "Mozilla/5.0 (compatible; InkyPi theCHIVE RSS)"}
+            )
             response.raise_for_status()
 
             img = Image.open(io.BytesIO(response.content))
