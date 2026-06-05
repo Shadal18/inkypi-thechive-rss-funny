@@ -53,18 +53,6 @@
 <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const showTitleInput = document.getElementById("show_title")
-
-    if (typeof loadPluginSettings !== "undefined" && loadPluginSettings && typeof pluginSettings !== "undefined") {
-      if (showTitleInput) {
-        showTitleInput.value = pluginSettings.show_title || "1"
-      }
-    } else {
-      if (showTitleInput) {
-        showTitleInput.value = "1"
-      }
-    }
-
     if (typeof kofiWidgetOverlay !== "undefined") {
       kofiWidgetOverlay.draw("shadal", {
         type: "floating-chat",
