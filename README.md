@@ -40,9 +40,7 @@ If you don’t see your changes after updating:
 
 ## Requirements
 
-- An InkyPi setup with an Inky-compatible e‑paper display.
 - Network access from the InkyPi device to `thechive.com` over HTTPS.
-- Python dependencies required by InkyPi (including `requests` and `Pillow`).
 
 ## Features
 
@@ -53,21 +51,7 @@ This plugin is an extension for the InkyPi e‑paper display frame and includes 
 - Falls back to parsing the `<description>` HTML for the first `<img>` if media tags are missing.
 - Downloads and scales the image to fit the InkyPi display while preserving aspect ratio.
 - Centers the image on the display.
-- Optional title bar overlay showing the post title at the bottom of the screen.
 - Graceful error handling with on‑screen error messages instead of blank or crashed displays.
-
-## Settings
-
-The plugin settings page can be used to customize:
-
-- Show or hide the title bar.
-- (Optional) Future options like scaling mode or content filters, if implemented.
-
-If you only include a basic checkbox, for example:
-
-- Show title bar
-
-then the plugin will simply toggle the title bar overlay on or off.
 
 ## Details
 
@@ -86,9 +70,7 @@ https://github.com/shadal18/inkypi-thechive-rss-funny
 ## Screenshots
 
 - Main plugin display showing the latest funny image from theCHIVE.
-- Plugin settings screen with the title bar toggle.
 
 ```text
 screenshots/example.png
-screenshots/settings.png
 ```
