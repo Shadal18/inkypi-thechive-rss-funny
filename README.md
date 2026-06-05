@@ -69,8 +69,8 @@ https://github.com/shadal18/inkypi-thechive-rss-funny
 
 ## Screenshots
 
-- Main plugin display showing the latest funny image from theCHIVE.
+- Main plugin display showing active spools.
 
-```text
-screenshots/example.png
-```
+<p align="center">
+  <img src="screenshots/example.png" width="45%" />
+</p>
