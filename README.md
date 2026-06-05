@@ -18,16 +18,16 @@ To update the plugin on your InkyPi device:
 2. Change into the plugin directory:
 
    ```bash
-   cd ~/InkyPi/src/plugins/inkypi-thechive-rss-funny
+   cd ~/InkyPi/src/plugins/thechive-rss-funny
    ```
 
 3. Run this update command:
 
    ```bash
    git pull origin main && \
-   if [ -d inkypi-thechive-rss-funny ]; then \
-     rsync -a inkypi-thechive-rss-funny/ ./ && \
-     rm -rf inkypi-thechive-rss-funny; \
+   if [ -d thechive-rss-funny ]; then \
+     rsync -a thechive-rss-funny/ ./ && \
+     rm -rf thechive-rss-funny; \
    fi && \
    sudo systemctl restart inkypi.service
    ```
