@@ -2,5 +2,5 @@
   "display_name": "theCHIVE Funny Feed",
   "id": "thechive_rss_funny",
   "class": "ChiveFunny",
-  "repository_url": "https://github.com/shadal18/inkypi-thechive-rss-funny"
+  "repository": "https://github.com/shadal18/inkypi-thechive-rss-funny"
 }
