@@ -2,6 +2,8 @@
 
 A custom InkyPi plugin that shows the latest funny image from theCHIVE “Funny” RSS feed on your Inky e‑paper display.
 
+_theCHIVE Funny Feed_ is a plugin for [InkyPi](https://github.com/fatihak/InkyPi) that pulls the latest image from theCHIVE’s Funny RSS feed and displays it on your e‑paper screen.
+
 ## Install
 
 Use the InkyPi plugin installer with the plugin ID and this repository URL, following the install pattern shown by the official InkyPi plugin template.
