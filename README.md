@@ -63,9 +63,7 @@ Once the image URL is found, the plugin downloads the image, converts it to a di
 
 GitHub repository:
 
-```text
-https://github.com/shadal18/inkypi-thechive-rss-funny
-```
+[https://github.com/shadal18/inkypi-thechive-rss-funny](https://github.com/shadal18/inkypi-thechive-rss-funny)
 
 ## Screenshots
 
