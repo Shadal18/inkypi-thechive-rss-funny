@@ -20,41 +20,41 @@ class ChiveFunny(BasePlugin):
         super().__init__(config)
 
     def generate_image(self, settings, device_config, inky_display=None):
-        width = getattr(device_config, "width", 800)
-        height = getattr(device_config, "height", 480)
+    width = getattr(device_config, "width", 800)
+    height = getattr(device_config, "height", 480)
 
-        try:
-            item = self._fetch_latest_item()
-            if not item:
-                return self._build_error_image(width, height, "No items in feed")
+    try:
+        item = self._fetch_latest_item()
+        if not item:
+            return self._build_error_image(width, height, "No items in feed")
 
-            title = item.get("title", "theCHIVE")
-            image_url = item.get("image_url")
+        title = item.get("title", "theCHIVE")
+        image_url = item.get("image_url")
 
-            if not image_url:
-                return self._build_error_image(width, height, "No image URL in item")
+        if not image_url:
+            return self._build_error_image(width, height, "No image URL in item")
 
-            LOGGER.info("ChiveFunny: using image %s", image_url)
+        LOGGER.info("ChiveFunny: using image %s", image_url)
 
-            post_img = self._download_image(image_url)
-            if not post_img:
-                return self._build_error_image(width, height, "Image download failed")
+        post_img = self._download_image(image_url)
+        if not post_img:
+            return self._build_error_image(width, height, "Image download failed")
 
-            canvas = Image.new("RGB", (width, height), "white")
+        canvas = Image.new("RGB", (width, height), "white")
 
-            title_bar_height = 32
-            fitted = self._fit_to_display(post_img, (width, height - title_bar_height))
-            x = (width - fitted.size[0]) // 2
-            y = ((height - title_bar_height) - fitted.size[1]) // 2
-            canvas.paste(fitted, (x, max(0, y)))
+        title_bar_height = 32
+        fitted = self._fit_to_display(post_img, (width, height - title_bar_height))
+        x = (width - fitted.size[0]) // 2
+        y = ((height - title_bar_height) - fitted.size[1]) // 2
+        canvas.paste(fitted, (x, max(0, y)))
 
-            self._draw_title_bar(canvas, title)
+        self._draw_title_bar(canvas, title)
 
-            return canvas
+        return canvas
 
-        except Exception as exc:
-            LOGGER.exception("ChiveFunny plugin error: %s", exc)
-            return self._build_error_image(width, height, "Plugin error")
+    except Exception as exc:
+        LOGGER.exception("ChiveFunny plugin error: %s", exc)
+        return self._build_error_image(width, height, "Plugin error")
 
     def _fetch_latest_item(self):
         response = requests.get(
